@@ -73,6 +73,14 @@ hck_site = input("Write the Site's Name you want to HACK!\n\n")
 hck_site = hck_site.upper()
 mainFunc()
 
+
+# IP List (FAKE) - Port List 
+
+IPList = ["6.55.126.1", "104.89.49.11", "23.37.56.152", "104.107.158.41", "23.214.28.211", "104.24.127.181"]
+
+PortList = ["80", "443", "128", "21", "995", "143"]
+
+
 # Animations
 
 time.sleep(4)
@@ -153,6 +161,9 @@ random.choice(AlgList)()
 # Generate Report.
 f = open("Report.txt","w+")
 f.write("The site was HACKED succesfully!")
+f.write("\nWebsite: ", hck_site())
+f.write("\n\nPort:", random.choice(PortList)())
+f.write("\nIP:", random.choice(IPList)())
 f.write("\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S GMT", time.gmtime()))
 f.write("\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S Local Time", time.localtime()))
 f.write("\n")
