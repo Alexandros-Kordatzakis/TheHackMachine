@@ -42,4 +42,4 @@ For example (User Input):  <b>nsa.gov</b>
 
  ## License
  
-MIT © [Alexandros Kordaztakis]([https://github.com/Alexandros-Kordatzakis/](https://github.com/Alexandros-Kordatzakis/))
+MIT © [Alexandros Kordaztakis](https://github.com/Alexandros-Kordatzakis/)
