@@ -28,7 +28,7 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 ## How to Use:
 
 * ```bash
-  $ python3 Main.py
+  $ python3 main.py
   ```
 
 * When promted to write your specified website, it is advised to use  {WebsiteNAME}**.**(domainName) format. 
