@@ -3,6 +3,9 @@ import time
 import os
 import pyfiglet 
 import random
+from datetime import datetime
+
+
 # import nmap
 # import argparse
 
@@ -76,18 +79,22 @@ mainFunc()
 
 # IP List (FAKE) - Port List 
 
-IPList = '6.55.126.1'
+IP = '6.55.126.1'
+#IP2 = '104.89.49.11'
+#IP3 = '104.107.158.41'
+#IP4 = '23.214.28.211'
 
-PortList = '21'
+Port = "995"
+#Port2 = "80"
+#Port3 = "128"
+#Port4 = "443"
 
-##TODO: Implement  "random.choice()()"  for the multiple IP's and Port's and not always using the same IP and Port Int. 
+
+##TODO: Implement  "random.choice()()"  for the multiple IP's and Port's.
 
 # IPList = ['6.55.126.1', '104.89.49.11', '23.37.56.152', '104.107.158.41', '23.214.28.211', '104.24.127.181']
 # PortList = ['80', '443', '128', '21', '995', '143']
 
-# Try  "{''}"  instead of  "['']"  
-
-##
 
 
 
@@ -166,16 +173,24 @@ def mainAlgOp2():   # Animation Alg Option 2
 
 
 AlgList = [mainAlgOp2, mainAlgOp1]
+
+start = datetime.now()
 random.choice(AlgList)()
+end = datetime.now() - start
+print('Time elapsed (hh:mm:ss.ms) {}'.format(end))
+
 
 # Generate Report.
 f = open("Report.txt","w+")
 f.write("The site was HACKED succesfully!")
 
 f.write("\n\nIP: ")
-f.write(IPList)
+f.write(IP)
 f.write("\nPort: ")
-f.write(PortList)
+f.write(Port)
+
+f.write("\n\nTime elapsed (hh:mm:ss.ms): ")
+f.write(format(end))
 
 f.write("\n\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S GMT", time.gmtime()))
 f.write("\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S Local Time", time.localtime()))
