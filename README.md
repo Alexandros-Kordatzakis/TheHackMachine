@@ -5,7 +5,8 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 <br>
 
 ## How to Install:
-
+###### *Widnows Guide Coming!*
+#### ***Linux Version***
 **NOTE**: Python 3.6 or higher is required.
 
 ```bash 
@@ -28,7 +29,7 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 ## How to Use:
 
 * ```bash
-  $ python3 main.py
+  $ python3 Main.py
   ```
 
 * When promted to write your specified website, it is advised to use  {WebsiteNAME}**.**(domainName) format. 
