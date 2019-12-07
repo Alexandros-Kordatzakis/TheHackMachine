@@ -2,6 +2,8 @@ using System;
 using System.Threading;
 using System.Text;
 using System.Timers;
+using System.Diagnostics;
+using System.IO;
 
 namespace TheHackMachine {
     class Program {
@@ -21,6 +23,20 @@ namespace TheHackMachine {
 
             mainFunc();
             Thread.Sleep(4000);
+
+
+            string IP = "6.55.126.1";
+            //string IP2 = "104.89.49.11";
+            //string IP3 = "104.107.158.41";
+            //string IP4 = "23.214.28.211";
+
+            string Port = "995";
+            //string Port2 = "80";
+            //string Port3 = "128";
+            //string Port4 = "443";
+
+            //TODO: Implement  "random.choice()()"  for the multiple IP's and Port's.
+
 
 
             // Animations
@@ -111,11 +127,9 @@ namespace TheHackMachine {
                 Console.WriteLine("  [##########]  100%");
 
                 Console.Write("#### ## #### ###: ");
-                using (var progress = new ProgressBar())
-                {
+                using (var progress = new ProgressBar()) {
 
-                    for (int i = 0; i <= 100; i++)
-                    {
+                    for (int i = 0; i <= 100; i++) {
 
                         progress.Report((double)i / 100);
                         Thread.Sleep(45);
@@ -127,6 +141,40 @@ namespace TheHackMachine {
 
             }
 
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            //mainAlgOp1();      -- COMMENTED FOR TESTING PURPOSES
+            stopWatch.Stop();
+            var elapsedMs = stopWatch.ElapsedMilliseconds;
+
+
+            // Generate Report
+
+            string path = @"c:\Users\ALMANKA\Documents\Report.txt";
+
+            if (!File.Exists(path)) {
+
+                using (StreamWriter sw = File.CreateText(path)) {
+                    sw.WriteLine("The site was HACKED succesfully!");
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("\nSite: {0}", hckd_site);
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("IP: {0}", IP);
+                    sw.WriteLine("Port: {0}", Port);
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("Time Elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
+
+                    //sw.WriteLine("Report Generated: {0}", );     -- GET CURRENT AND GMT TIME
+                }
+            }
+
+            Console.WriteLine("Time elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
         }
     }
 }
