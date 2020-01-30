@@ -41,7 +41,7 @@ namespace TheHackMachine {
 
             // Animations
 
-            void mainAlgOp1() {   // Might put them in another file in the future, so there isn't such a mess :)
+            void mainAlgOp1() {   // Might put them in another file in the future, so there isn't such a mess.. But looks cool tho :)
 
                 Console.Write("Computing: ");
                 using (var progress = new ProgressBar()) {
@@ -143,14 +143,14 @@ namespace TheHackMachine {
 
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
-            //mainAlgOp1();      -- COMMENTED FOR TESTING PURPOSES
+            mainAlgOp1();      // -- COMMENTED FOR TESTING PURPOSES ?!
             stopWatch.Stop();
             var elapsedMs = stopWatch.ElapsedMilliseconds;
 
 
             // Generate Report
 
-            string path = @"c:\Users\ALMANKA\Documents\Report.txt";
+            string path = @"c:\Users\ALMANKA\Documents\Report.txt";     //FIXME: Set file to be created at a location that can find it in another PC. (Do not use "User\...\" on path) Might use just "C:\" ?
 
             if (!File.Exists(path)) {
 
@@ -171,8 +171,39 @@ namespace TheHackMachine {
                     sw.WriteLine("Time Elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
 
                     //sw.WriteLine("Report Generated: {0}", );     -- GET CURRENT AND GMT TIME
+
+                    sw.Close();
                 }
             }
+            else if (File.Exists(path)) {    // If file = exists, add: 
+
+                using (var sw = new StreamWriter(path, true)) {
+                    sw.WriteLine("\n\n\n\n\n");
+                    sw.WriteLine("___________________________________________________________");
+                    sw.WriteLine("The site was HACKED succesfully!");
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("\nSite: {0}", hckd_site);
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("IP: {0}", IP);
+                    sw.WriteLine("Port: {0}", Port);
+
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("Time Elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
+
+                    //sw.WriteLine("Report Generated: {0}", );     -- GET CURRENT AND GMT TIME
+                    sw.WriteLine("___________________________________________________________");
+
+                    sw.Close();
+                }
+            }
+
+
+            Console.WriteLine("Done! Check the Report at C:/Users/ALMANKA/Documents/Report.txt");
 
             Console.WriteLine("Time elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
         }
