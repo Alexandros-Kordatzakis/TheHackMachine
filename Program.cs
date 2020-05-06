@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading;
 using System.Text;
 using System.Timers;
@@ -150,9 +150,9 @@ namespace TheHackMachine {
 
             // Generate Report
 
-            string path = @"c:\Users\ALMANKA\Documents\Report.txt";     //FIXME: Set file to be created at a location that can find it in another PC. (Do not use "User\...\" on path) Might use just "C:\" ?
+            string path = @"C:\Users\Default\Documents\Report.txt";     //FIXED!
 
-            if (!File.Exists(path)) {
+            if (!File.Exists(path)) {       // If file !exists, create and write:
 
                 using (StreamWriter sw = File.CreateText(path)) {
                     sw.WriteLine("The site was HACKED succesfully!");
@@ -202,10 +202,14 @@ namespace TheHackMachine {
                 }
             }
 
-
-            Console.WriteLine("Done! Check the Report at C:/Users/ALMANKA/Documents/Report.txt");
+            Console.WriteLine("\n");
+            Console.WriteLine("Done! Check the Report at C:/Users/Default/Documents/Report.txt");
 
             Console.WriteLine("Time elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Press enter to close...");
+            Console.ReadLine();
         }
     }
 }

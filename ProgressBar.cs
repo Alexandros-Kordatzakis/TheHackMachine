@@ -1,12 +1,11 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Threading;
 
 /// <summary>
 /// An ASCII progress bar
 /// </summary>
-public class ProgressBar : IDisposable, IProgress<double>
-{
+public class ProgressBar : IDisposable, IProgress<double> {
     private const int blockCount = 10;
     private readonly TimeSpan animationInterval = TimeSpan.FromSeconds(1.0 / 8);
     private const string animation = @"|/-\";
@@ -18,22 +17,18 @@ public class ProgressBar : IDisposable, IProgress<double>
     private bool disposed = false;
     private int animationIndex = 0;
 
-    public ProgressBar()
-    {
+    public ProgressBar() {
         timer = new Timer(TimerHandler, new object(), animationInterval, animationInterval);
     }
 
-    public void Report(double value)
-    {
+    public void Report(double value) {
         // Make sure value is in [0..1] range
         value = Math.Max(0, Math.Min(1, value));
         Interlocked.Exchange(ref currentProgress, value);
     }
 
-    private void TimerHandler(object state)
-    {
-        lock (timer)
-        {
+    private void TimerHandler(object state) {
+        lock (timer) {
             if (disposed) return;
 
             int progressBlockCount = (int)(currentProgress * blockCount);
@@ -46,13 +41,11 @@ public class ProgressBar : IDisposable, IProgress<double>
         }
     }
 
-    private void UpdateText(string text)
-    {
+    private void UpdateText(string text) {
         // Get length of common portion
         int commonPrefixLength = 0;
         int commonLength = Math.Min(currentText.Length, text.Length);
-        while (commonPrefixLength < commonLength && text[commonPrefixLength] == currentText[commonPrefixLength])
-        {
+        while (commonPrefixLength < commonLength && text[commonPrefixLength] == currentText[commonPrefixLength]) {
             commonPrefixLength++;
         }
 
@@ -65,8 +58,7 @@ public class ProgressBar : IDisposable, IProgress<double>
 
         // If the new text is shorter than the old one: delete overlapping characters
         int overlapCount = currentText.Length - text.Length;
-        if (overlapCount > 0)
-        {
+        if (overlapCount > 0) {
             outputBuilder.Append(' ', overlapCount);
             outputBuilder.Append('\b', overlapCount);
         }
@@ -75,10 +67,8 @@ public class ProgressBar : IDisposable, IProgress<double>
         currentText = text;
     }
 
-    public void Dispose()
-    {
-        lock (timer)
-        {
+    public void Dispose() {
+        lock (timer) {
             disposed = true;
             UpdateText(string.Empty);
             timer.Dispose();
