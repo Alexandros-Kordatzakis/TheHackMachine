@@ -29,7 +29,7 @@ from datetime import datetime
 
 
 
-# Use of NMAP for more Creativity and Reality(?) ?!
+# Use of NMAP for more Creativity ?!
 
 # nm_scan = nmap.PortScanner()
 # nm_scanner = nm_scan.scan(sys.argv[1],'80',arguments='-p') 
@@ -183,6 +183,8 @@ print('Time elapsed (hh:mm:ss.ms) {}'.format(end))
 # Generate Report.
 f = open("Report.txt","w+")
 f.write("The site was HACKED succesfully!")
+f.write("\nSite: ")
+f.write(hck_site)
 
 f.write("\n\nIP: ")
 f.write(IP)
