@@ -5,7 +5,19 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 <br>
 
 ## How to Install:
-###### *Widnows Guide Coming!*
+
+#### ***Windows Version***
+**NOTE:** .NET Framework 4.7.2 or higher is required.
+
+```bash 
+  # clone the repo:
+  
+  $ git clone https://github.com/Alexandros-Kordatzakis/TheHackMachine.git
+  ```
+Run  **TheHackMachine.exe**!
+
+<br>
+
 #### ***Linux Version***
 **NOTE**: Python 3.6 or higher is required.
 
@@ -28,6 +40,17 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 
 ## How to Use:
 
+#### ***Windows Version***
+* Just run **TheHackMachine.exe**
+
+* When promted to write your specified website, it is advised to use  {WebsiteNAME}**.**(domainName) format. 
+For example (User Input):  <b>nsa.gov</b>
+
+* At the end of the process, a .TXT Report file will be created at **C:/Users/Default/Documents/** folder!  
+
+<br>
+
+#### ***Linux Version***
 * ```bash
   $ python3 Main.py
   ```
@@ -35,7 +58,7 @@ A script to fool your friends, showing that you can hack ANY website on the Net!
 * When promted to write your specified website, it is advised to use  {WebsiteNAME}**.**(domainName) format. 
 For example (User Input):  <b>nsa.gov</b>
 
-* At the end of the process, a .TXT Report file will be created in the Script's directory!
+* At the end of the process, a .TXT Report file will be created at the Script's directory!
 
 
 <br>
