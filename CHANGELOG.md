@@ -8,6 +8,33 @@
 <br />
 
 
+
+## ~ Version 1.0.5.8 - 2020/06/23 ~
+
+### .Py Version &nbsp; {
+
+* **Implemented the new Algorithm to produce Randomly Fake *(Probably)* IP's and Ports.**
+
+* **Minor Code Tweaks.**
+
+* **Started changing variable names to PEP8 (snake_case)...**  *Thanks @MarioHS#7100*
+
+### **}**
+
+<br />
+
+### C# Version &nbsp; {
+* **Implemented the new Algorithm to produce Randomly Fake *(Probably)* IP's and Ports. Working after 157 tests xD..**
+
+* **FIXED/ADDED Report Time Feauture. Now the Report.txt will incude at the end the Local and GMT/UTC Time the report was generated.**
+
+* **Minor Code Tweaks.**
+
+### **}**
+
+<br />
+<br />
+
 ## ~ Version 1.0.5 - 2020/05/06 ~
 
 
