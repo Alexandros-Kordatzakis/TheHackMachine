@@ -1,3 +1,5 @@
+#!/usr/bin/env/ python3
+
 import sys
 import time
 import os
@@ -77,23 +79,18 @@ hck_site = hck_site.upper()
 mainFunc()
 
 
-# IP List (FAKE) - Port List 
-
-IP = '6.55.126.1'
-#IP2 = '104.89.49.11'
-#IP3 = '104.107.158.41'
-#IP4 = '23.214.28.211'
-
-Port = "995"
-#Port2 = "80"
-#Port3 = "128"
-#Port4 = "443"
+##TODO: Implement  "random.choice()()"  for the multiple IP's and Port's.   UPDATE: This method looks good.
+## 2(3) Options for this one.   1) JSON data.    2) Radnom Numbers Generator Algorithm with specific number length.     3) Random Generated Numbers into a JSON (xD)
 
 
-##TODO: Implement  "random.choice()()"  for the multiple IP's and Port's.
+# IP / PORT Part:
 
-# IPList = ['6.55.126.1', '104.89.49.11', '23.37.56.152', '104.107.158.41', '23.214.28.211', '104.24.127.181']
-# PortList = ['80', '443', '128', '21', '995', '143']
+
+def random_ip_algorithm():
+    return str(random.randint(1, 255))+'.'+str(random.randint(1, 255))+'.'+str(random.randint(1, 255))+'.'+str(random.randint(1, 255))
+
+def random_port_algorithm():
+    return str(random.choice([random.randint(8, 1023), random.randint(8, 65000)]))
 
 
 
@@ -172,10 +169,10 @@ def mainAlgOp2():   # Animation Alg Option 2
   time.sleep(5)
 
 
-AlgList = [mainAlgOp2, mainAlgOp1]
+alg_list = [mainAlgOp2, mainAlgOp1]
 
 start = datetime.now()
-random.choice(AlgList)()
+random.choice(alg_list)()
 end = datetime.now() - start
 print('Time elapsed (hh:mm:ss.ms) {}'.format(end))
 
@@ -186,16 +183,16 @@ f.write("The site was HACKED succesfully!")
 f.write("\nSite: ")
 f.write(hck_site)
 
-f.write("\n\nIP: ")
-f.write(IP)
-f.write("\nPort: ")
-f.write(Port)
+f.write("\n\nIP: "+random_ip_algorithm())
+f.write("\nPort: "+random_port_algorithm())
 
 f.write("\n\nTime elapsed (hh:mm:ss.ms): ")
 f.write(format(end))
 
 f.write("\n\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S GMT", time.gmtime()))
 f.write("\nReport Generated "+time.strftime("%Y-%m-%d_%H:%M:%S Local Time", time.localtime()))
+
+f.close()
 
 
 print("\n")
