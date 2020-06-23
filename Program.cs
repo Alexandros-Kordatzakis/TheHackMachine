@@ -7,6 +7,20 @@ using System.IO;
 
 namespace TheHackMachine {
     class Program {
+
+        // Random IPs and Ports Generator.      -Working after 157 tests xD.
+
+        public static string random_ip_algorithm() {
+            var random = new Random();
+            //Console.WriteLine($"{random.Next(1, 255)}.{random.Next(1, 255)}.{random.Next(1, 255)}.{random.Next(1, 255)}");
+            return $"{random.Next(1, 255)}.{random.Next(1, 255)}.{random.Next(1, 255)}.{random.Next(1, 255)}";
+        }
+
+        public static uint random_port_algorithm() {
+            var random = new Random();
+            return (uint)random.Next(8, 65000);
+        }
+
         static void Main(string[] args) {
 
             Console.WriteLine("TheHackMachine !");
@@ -23,20 +37,6 @@ namespace TheHackMachine {
 
             mainFunc();
             Thread.Sleep(4000);
-
-
-            string IP = "6.55.126.1";
-            //string IP2 = "104.89.49.11";
-            //string IP3 = "104.107.158.41";
-            //string IP4 = "23.214.28.211";
-
-            string Port = "995";
-            //string Port2 = "80";
-            //string Port3 = "128";
-            //string Port4 = "443";
-
-            //TODO: Implement  "random.choice()()"  for the multiple IP's and Port's.
-
 
 
             // Animations
@@ -148,6 +148,9 @@ namespace TheHackMachine {
             var elapsedMs = stopWatch.ElapsedMilliseconds;
 
 
+            DateTime time_now = DateTime.Now;       //  GET Current Time
+            DateTime time_utc = DateTime.UtcNow;        //   GET UTC Time
+
             // Generate Report
 
             string path = @"C:\Users\Default\Documents\Report.txt";     //FIXED!
@@ -163,14 +166,17 @@ namespace TheHackMachine {
 
                     sw.WriteLine("\n");
 
-                    sw.WriteLine("IP: {0}", IP);
-                    sw.WriteLine("Port: {0}", Port);
+                    sw.WriteLine("IP: {0}", random_ip_algorithm());
+                    sw.WriteLine("Port: {0}", random_port_algorithm());
 
                     sw.WriteLine("\n");
 
                     sw.WriteLine("Time Elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
 
-                    //sw.WriteLine("Report Generated: {0}", );     -- GET CURRENT AND GMT TIME
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("Report Generated: {0} Local Time", time_now);     // -- GET CURRENT AND GMT TIME
+                    sw.WriteLine("Report Generated: {0} GMT/UTC", time_utc);
 
                     sw.Close();
                 }
@@ -188,14 +194,17 @@ namespace TheHackMachine {
 
                     sw.WriteLine("\n");
 
-                    sw.WriteLine("IP: {0}", IP);
-                    sw.WriteLine("Port: {0}", Port);
+                    sw.WriteLine("IP: {0}", random_ip_algorithm());
+                    sw.WriteLine("Port: {0}", random_port_algorithm());
 
                     sw.WriteLine("\n");
 
                     sw.WriteLine("Time Elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
 
-                    //sw.WriteLine("Report Generated: {0}", );     -- GET CURRENT AND GMT TIME
+                    sw.WriteLine("\n");
+
+                    sw.WriteLine("Report Generated: {0} Local Time", time_now);     // -- GET CURRENT AND GMT TIME
+                    sw.WriteLine("Report Generated: {0} GMT/UTC", time_utc);
                     sw.WriteLine("___________________________________________________________");
 
                     sw.Close();
@@ -205,7 +214,7 @@ namespace TheHackMachine {
             Console.WriteLine("\n");
             Console.WriteLine("Done! Check the Report at C:/Users/Default/Documents/Report.txt");
 
-            Console.WriteLine("Time elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
+            Console.WriteLine("\nTime elapsed: {0} (HH:mm:ss:msssss)", stopWatch.Elapsed);
 
             Console.WriteLine("\n");
             Console.WriteLine("Press enter to close...");
