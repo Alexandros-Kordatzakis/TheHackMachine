@@ -2,6 +2,8 @@
 # TheHackMachine
 A script to fool your friends, showing that you can hack ANY website on the Net!
 
+###### Yes. I know i've the files for each OS in the same directory and it's a mess... 
+
 <br>
 
 ## How to Install:
@@ -48,11 +50,21 @@ For example (User Input):  <b>nsa.gov</b>
 
 * At the end of the process, a .TXT Report file will be created at **C:/Users/Default/Documents/** folder!  
 
+---
 <br>
 
 #### ***Linux Version***
+
+*Install requirements*
+
 * ```bash
-  $ python3 Main.py
+  $ pip install -r requirements.txt
+  or
+  $ pip3 install -r requirements.txt
+  ```
+
+* ```bash
+  $ python3 main.py
   ```
 
 * When promted to write your specified website, it is advised to use  {WebsiteNAME}**.**(domainName) format. 
